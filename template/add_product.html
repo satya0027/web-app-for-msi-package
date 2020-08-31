@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Add product
+</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+     img {
+     opacity: 0.3;
+     }
+
+     #title {
+     color: black;
+     font-size: 30;
+     }
+
+     input {
+     width: 300px;
+     height: 30px;
+     }
+
+	 a {
+	 background-color: #f2f2f2;
+     color: black;
+     width: 30px;
+     padding: 3px;
+     text-align: center;
+     text-decoration: none;
+     display: inline block;
+     }
+
+</style>
+</head>
+<body bgcolor="#33ADFF" onload="resetSelection()">
+<p><center><img src="/static/download.jpg" width="200" height="200"></p>
+<br>
+    <form  action = "#" method = "post" >
+    <div class="custom-select" style="width:300px;">
+    <select id="category"  size="1" name="category" onchange="makeSubmenu(this.value)"  required>
+<option value="" >Choose Category</option>
+<option>BARCODE</option>
+<option>PRINTER</option>
+</select>
+    <select id="categorySelect" name="subcategory" size="1">
+<option value="" disabled selected>Choose Subcategory</option>
+<option></option>
+</center></select></div>
+<div id="title"><p>Title:<input type="text" name="title" required></p>
+<p>Dealer Price:<input type="number" name="price" required></p>
+<p>Barcode:<input type="number" name="barcode" required></p></div>
+    <button type="submit">ADD</button>
+	<button type="reset">CLEAR</button>
+	<a href="{{ url_for('home') }}">BACK</a>
+	</form>
+	    <script type="text/javascript">
+        var subcategory = {
+            BARCODE: ["SHEET", "BARCODE PRINTER", "SCANNER"],
+            PRINTER: ["INKJET", "NORMAL", "TYPE 3"]
+        }
+
+        function makeSubmenu(value) {
+            if (value.length == 0) document.getElementById("categorySelect").innerHTML = "<option></option>";
+            else {
+                var citiesOptions = "";
+                for (categoryId in subcategory[value]) {
+                    citiesOptions += "<option>" + subcategory[value][categoryId] + "</option>";
+                }
+                document.getElementById("categorySelect").innerHTML = citiesOptions;
+            }
+        }
+
+
+        function resetSelection() {
+            document.getElementById("category").selectedIndex = 0;
+            document.getElementById("categorySelect").selectedIndex = 0;
+        }
+    </script>
+</body>
+</html>

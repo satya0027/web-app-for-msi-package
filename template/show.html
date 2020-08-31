@@ -1,0 +1,53 @@
+<html>
+<head>
+  <title> show </title>
+  <style>
+   img {
+     opacity: 0.3;
+     }
+
+   table,th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+     }
+
+    th, td {
+     padding: 5px;
+    }
+
+ a {
+	 background-color: #f2f2f2;
+     color: black;
+     width: 30px;
+     padding: 3px;
+     text-align: center;
+     text-decoration: none;
+     display: inline block;
+     }
+</style>
+</head>
+<body bgcolor="#33ADFF">
+<p><center><img src="/static/download.jpg" width="200" height="200"></center></p>
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+    <th>CATEGORY</th>
+    <th>SUBCATEGORY</th>
+    <th>TITLE</th>
+	<th>PRICE</th>
+  <th>BARCODE</th>
+  </tr>
+  {% for item in values %}
+  <tr>
+    <td>{{item.id}}</td>
+   <td>{{item.category}}</td>
+   <td>{{item.subcategory}}</td>
+   <td>{{item.title}}</td>
+   <td>{{item.price}}</td>
+   <td>{{item.barcode}}</td>
+   </tr>
+   {% endfor %}
+   <p><a href="{{url_for('view_product')}}">BACK</a></p>
+   <p><a href="barcode_svg.svg">print</a></p>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title> show </title>
+  <style>
+   img {
+     opacity: 0.3;
+     }
+
+   table,th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+     }
+
+    th, td {
+     padding: 5px;
+    }
+
+ a {
+	 background-color: #f2f2f2;
+     color: black;
+     width: 30px;
+     padding: 3px;
+     text-align: center;
+     text-decoration: none;
+     display: inline block;
+     }
+</style>
+</head>
+<body bgcolor="#33ADFF">
+<p><center><img src="/static/download.jpg" width="200" height="200"></center></p>
+<table style="width:100%">
+  <tr>
+    <th>SN</th>
+    <th>CATEGORY</th>
+    <th>SUBCATEGORY</th>
+    <th>NAME</th>
+	<th>COMPANY</th>
+  </tr>
+  {% for item in values %}
+  <tr>
+    <td>{{item.sn}}</td>
+   <td>{{item.category}}</td>
+   <td>{{item.subcategory}}</td>
+   <td>{{item.name}}</td>
+   <td>{{item.company}}</td>
+   </tr>
+   {% endfor %}
+   <p><a href="{{url_for('home')}}">BACK</a></p>
+</body>
+</html>

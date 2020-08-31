@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>Front page</title>
+<style>
+
+img {
+  opacity: 0.3;
+}
+
+.dropbtn {
+background-color: black;
+  color: white;
+  width: 300px;
+  padding: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dropbtn:hover {
+    color: red;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 300px;
+  bottom: 20px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border: 1px black solid;
+}
+
+
+.dropdown-content a {
+  background-color: black;
+  color: white;
+  width: 300px;
+  padding: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  border: 1px black solid;
+}
+
+.dropdown-content a:hover, a:active {
+        color: red;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.show {display: block;}
+
+</style>
+</head>
+<body bgcolor="#33ADFF">
+<p><center><img src="/static/download.jpg" width="200" height="200"></center></p>
+<br>
+<div class="dropdown">
+<p><button onclick="myFunction()" class="dropbtn">PRODUCT</button>
+<div id="myDropdown" class="dropdown-content">
+   <div><a href="{{ url_for('add_product') }}">ADD PRODUCT</a></div><br>
+    <div><a href="{{ url_for('view_product') }}">VIEW PRODUCT</a></div>
+</div>
+</div></p>
+
+<div class="dropdown">
+<p><button onclick="myFunction1()" class="dropbtn">ENQUIRY</button>
+<div id="myDropdown1" class="dropdown-content">
+   <div><a href="{{ url_for('add_enquiry')}}">ADD ENQUIRY</a></div><br>
+    <div><a href="{{ url_for('view_enquiry')}}">VIEW ENQUIRY</a></div>
+</div>
+</div></p>
+
+<div class="dropdown" style="float:right;">
+<p><button onclick="myFunction2()" class="dropbtn" >CUSTOMER</button>
+<div id="myDropdown2" class="dropdown-content" style="left:-380px;">
+   <div><a href="#">Link 1</a></div><br>
+    <div><a href="#">Link 2</a></div>
+</div>
+</div></P>
+
+<div class="dropdown">
+<p><button onclick="myFunction3()" class="dropbtn">COMPLAIN</button>
+<div id="myDropdown3" class="dropdown-content">
+   <div><a href="#">ADD COMPLAIN</a></div><br>
+    <div><a href="#">VIEW COMPLAIN</a></div>
+</div>
+</div></p>
+
+<div class="dropdown">
+<p><button onclick="myFunction4()" class="dropbtn">ORDER REGISTER</button>
+<div id="myDropdown4" class="dropdown-content">
+   <div><a href="#">ADD ORDER</a></div><br>
+    <div><a href="#">VIEW ORDER</a></div>
+</div>
+</div></p>
+
+<script>
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function myFunction1() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function myFunction2() {
+  document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function myFunction3() {
+  document.getElementById("myDropdown3").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+function myFunction4() {
+  document.getElementById("myDropdown4").classList.toggle("show");
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

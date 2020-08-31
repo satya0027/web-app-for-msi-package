@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>View Product</title>
+<style>
+     img {
+     opacity: 0.3;
+     }
+
+      .bar{
+     color: black;
+     font-size: 30;
+     }
+
+     input {
+     width: 300px;
+     height: 30px;
+     }
+
+	 a {
+	 background-color: #f2f2f2;
+     color: black;
+     width: 30px;
+     padding: 3px;
+     text-align: center;
+     text-decoration: none;
+     display: inline block;
+     }
+</style>
+</head>
+<body bgcolor="#33ADFF" onload="resetSelection()">
+<p><center><img src="/static/download.jpg" width="200" height="200"></p>
+<br>
+    <form action = '#' method = 'post' >
+     <div class="custom-select" style="width:300px;">
+    <select id="category" name="category" size="1" onchange="makeSubmenu(this.value)">
+<option value="" >Choose Category</option>
+<option>BARCODE</option>
+<option>PRINTER</option>
+<option>SHOW_ALL</option>
+</select>
+    <select id="categorySelect" name="subcategory" size="1">
+<option value="" >Choose Subcategory</option>
+<option></option>
+</center></select></div>
+<div class="bar"><p>Barcode:<input type="text" name="barcode"></p></div>
+<P>
+ <button type="submit">SHOW</button>
+	<a href="{{ url_for('home')}}">BACK</a></P>
+</form>
+<script type="text/javascript">
+        var subcategory = {
+            BARCODE: ["SHEET", "BARCODE PRINTER", "SCANNER"],
+            PRINTER: ["INKJET", "NORMAL", "TYPE 3"],
+            SHOW_ALL: ["ALL"]
+        }
+
+        function makeSubmenu(value) {
+            if (value.length == 0) document.getElementById("categorySelect").innerHTML = "<option></option>";
+            else {
+                var citiesOptions = "";
+                for (categoryId in subcategory[value]) {
+                    citiesOptions += "<option>" + subcategory[value][categoryId] + "</option>";
+                }
+                document.getElementById("categorySelect").innerHTML = citiesOptions;
+            }
+        }
+
+
+        function resetSelection() {
+            document.getElementById("category").selectedIndex = 0;
+            document.getElementById("categorySelect").selectedIndex = 0;
+        }
+    </script>
+</body>
+</html>
